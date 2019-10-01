@@ -1,0 +1,31 @@
+<nav>
+  <a href="/">
+    <img src="{{img.icon}}">
+  </a>
+  <a href="">
+    <p>Sign In</p>
+  </a>
+  <a href="">
+    <p>Sign Up</p>
+  </a>
+</nav>
+<form action="/signup/" method="POST" enctype="multipart/form-data">
+  <h1>Recruitment</h1>
+  <div class="form-item">
+    <label for="name">Name: </label>
+    <input id="name" name="heroname" type="text" placeholder="Enter hero name">
+  </div>
+  <div class="form-item">
+    <label for="pass">Password: </label>
+    <input id="pass" name="pass" type="password" placeholder="6 to 30 characters">
+  </div>
+  <div class="form-item">
+    <label for="pass2">Confirm Password: </label>
+    <input id="pass2" name="pass2" type="password" placeholder="Repeat 6 to 30 characters">
+  </div>
+  <div class="form-item">
+    <label for="avatar">Choose your Avatar:</label>
+    <input id="avatar" name="avatar" type="file" accept="image/*">
+  </div>
+  <button type="submit">Register</button>
+</form>
