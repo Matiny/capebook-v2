@@ -1,0 +1,27 @@
+<nav>
+  <a href="/">
+    <img src="{{img.icon}}">
+  </a>
+  <a href="">
+    <p>Sign In</p>
+  </a>
+  <a href="">
+    <p>Sign Up</p>
+  </a>
+</nav>
+<form action="/signin" method="POST">
+  <h1>Back to Battle</h1>
+  <div class="form-item">
+    <label for="username">Name: </label>
+    <input name="username" id="username" type="text" placeholder="4 to 30 characters">
+  </div>
+  <div class="form-item">
+    <label for="password">Password: </label><input name="password" id="password" type="password" placeholder="PLS CHANGE ME!">
+  </div>
+  <button type="submit">Log In</button>
+
+  {{#if message}}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+  
+</form>
