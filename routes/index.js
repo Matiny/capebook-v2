@@ -48,7 +48,7 @@ router.get('/signin', (req, res, next) => {
 
 router.get('/signup', (req, res, next) => {
   let img = { icon: "img/cb-icon.svg" }
-  res.render('auth/signup', { img });
+  res.render('auth/signup', { "message": req.flash("error"), img });
 });
 
 router.post("/signin", passport.authenticate("local", {
@@ -63,6 +63,12 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
 
   const { username, password, password2, } = req.body;
 
+  // console.log(req.file);
+  if (username === "" || password === "") {
+    res.render("auth/signup", { message: "Please enter both Name and Password" });
+    return;
+  }
+
   if (password !== password2) {
     res.render("auth/signup", { message: "Passwords didn't match" });
     return;
@@ -73,7 +79,8 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
     return;
   }
 
-  User.findOne({ username })
+  else {
+    User.findOne({ username })
     .then(user => {
       if (user !== null) {
         res.render("auth/signup", { message: "The username already exists" });
@@ -86,24 +93,33 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
       const newUser = new User({
         username,
         password: hashPass,
-        avatar: req.file.path
+        avatar: req.file.filename,
+        realname: "",
+        skills: "",
+        morality: "",
+        location: "",
+        origin: ""
       });
 
       newUser.save((err) => {
         if (err) {
-          res.render("auth/signup", { message: "Something went wrong" });
+          res.render("auth/signup", { message: "Please try again!" });
+          console.log(err);
         } else {
-          res.redirect("/");
+          res.redirect("/signin");
         }
       });
     })
     .catch(error => {
       next(error)
     })
+  }
 
   console.log(req.body);
 
 });
+
+let imgpath = "img/avatar/";
 
 //By default it goes to /login, here it goes to /signin
 router.get("/dashboard", (req, res) => {
@@ -111,7 +127,7 @@ router.get("/dashboard", (req, res) => {
     req.flash('error', 'Please sign in to view Dashboard')
     res.redirect('/signin')
   }
-  res.render("dashboard", { user: req.user });
+  res.render("dashboard", { user: req.user, imgpath });
 
 });
 

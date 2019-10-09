@@ -1,3 +1,5 @@
 <h1>Welcome, {{ user.username }}!</h1>
-<img src="{{trimString user.avatar}}" alt="Avatar of {{user.username}}">
+<img src="{{imgpath}}{{ user.avatar}}" alt="Avatar of {{user.username}}">
 <p>This is the dashboard!</p>
+
+<a href="/signout">Sign Out Here!</a>
