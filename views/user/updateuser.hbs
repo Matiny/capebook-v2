@@ -1,0 +1,82 @@
+<nav>
+  <a href="/">
+    <img src="{{img.icon}}">
+  </a>
+  <a href="">
+    <p>Sign In</p>
+  </a>
+  <a href="">
+    <p>Sign Up</p>
+  </a>
+</nav>
+<form action="/update-user" method="POST">
+  <h1>Update Character</h1>
+  <div class="form-item">
+    <label for="realname">Real Name: </label>
+    <input name="realname" id="realname" type="text" placeholder="Reveal your true identity" value="{{user.realname}}">
+  </div>
+  <div class="form-item">
+    <label for="location">Location: </label>
+    <input name="location" id="location" type="text" placeholder="Where do you operate from?">
+  </div>
+  <div class="form-item">
+    <label for="origin">1st Appearance:</label>
+    <input name="origin" id="origin" type="text" placeholder="Where'd you make your debut?">
+  </div>
+  <div class="form-item">
+    <label for="morality">Moral Alignment: </label>
+    <select name="morality" id="morality">
+      <option value="">Select Your Morality Below...</option>
+      <option value="Good | Lawful">Good | Lawful</option>
+      <option value="Good | Neutral">Good | Neutral</option>
+      <option value="Good | Chaotic">Good | Chaotic</option>
+      <option value="Neutral | Lawful">Neutral | Lawful</option>
+      <option value="True Neutral">True Neutral</option>
+      <option value="Neutral | Chaotic">Neutral | Chaotic</option>
+      <option value="Evil | Lawful">Evil | Lawful</option>
+      <option value="Evil | Neutral">Evil | Neutral</option>
+      <option value="Evil | Chaotic">Evil | Chaotic</option>
+    </select>
+  </div>
+
+  <div class="form-item">
+    <label for="option1">Genius IQ</label>
+    <input name="option1" type="checkbox" value="Genius IQ">
+    
+    <label for="option2">Super Strength</label>
+    <input name="option2" type="checkbox" value="Super Strength">
+    
+    <label for="option3">Super Speed</label>
+    <input name="option3" type="checkbox" value="Super Speed">
+    
+    <label for="option4">Super Senses</label>
+    <input name="option4" type="checkbox" value="Super Senses">
+    
+    <label for="option5">Healing</label>
+    <input name="option5" type="checkbox" value="Healing">
+    
+    <label for="option6">Flying</label>
+    <input name="option6" type="checkbox" value="Flying">
+    
+    <label for="option7">Super Toughness</label>
+    <input name="option7" type="checkbox" value="Super Toughness">
+    
+    <label for="option8">Psychic</label>
+    <input name="option8" type="checkbox" value="Psychic">
+    
+    <label for="option9">Magic</label>
+    <input name="option9" type="checkbox" value="Magic">
+    
+    <label for="option10">Elemental Control</label>
+    <input name="option10" type="checkbox" value="Elemental Control">
+  </div>
+
+
+  <div class="form-item">
+    <label for="bio">Bio: </label>
+    <textarea name="bio" id="" cols="30" rows="10" placeholder="Give a brief description about yourself"></textarea>
+  </div>
+
+  <button type="submit">Update!</button>
+
+</form>

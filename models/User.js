@@ -14,10 +14,11 @@ const userSchema = new mongoose.Schema({
     type: String
   },
   realname: { type: String },
+  location: { type: String },
   skills: { type: String },
   morality: { type: String },
-  location: { type: String },
   origin: { type: String },
+  bio: { type: String },
   // media: {type: Schema.Types.ObjectId, ref: 'Media'}
 
 });
