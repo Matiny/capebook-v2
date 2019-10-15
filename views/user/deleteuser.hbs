@@ -1,0 +1,24 @@
+<nav>
+  <a href="/">
+    <img src="{{img.icon}}">
+  </a>
+  <a href="">
+    <p>Sign In</p>
+  </a>
+  <a href="">
+    <p>Sign Up</p>
+  </a>
+</nav>
+<form action="/delete" method="POST">
+  <h1>Confirm Delete</h1>
+
+  <div class="form-item">
+    <label for="password">Password: </label><input name="password" id="password" type="password" placeholder="Enter your password">
+  </div>
+  <button type="submit">Delete Character</button>
+
+  {{#if message}}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+  
+</form>

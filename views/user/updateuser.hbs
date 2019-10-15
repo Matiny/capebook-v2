@@ -9,12 +9,19 @@
     <p>Sign Up</p>
   </a>
 </nav>
-<form action="/update-user" method="POST">
+
+<form action="/update" method="POST" enctype="multipart/form-data">
   <h1>Update Character</h1>
   <div class="form-item">
     <label for="realname">Real Name: </label>
     <input name="realname" id="realname" type="text" placeholder="Reveal your true identity" value="{{user.realname}}">
   </div>
+ 
+  <div class="form-item">
+    <label for="avatar">Choose your Avatar:</label>
+    <input id="avatar" name="avatar" type="file" accept="image/*">
+  </div>
+
   <div class="form-item">
     <label for="location">Location: </label>
     <input name="location" id="location" type="text" placeholder="Where do you operate from?">
@@ -90,3 +97,4 @@
   <button type="submit">Update!</button>
 
 </form>
+

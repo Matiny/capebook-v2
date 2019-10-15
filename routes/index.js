@@ -152,7 +152,7 @@ router.get("/signout", (req, res) => {
   res.redirect("/signin");
 });
 
-router.get("/update-user", (req, res) => {
+router.get("/update", (req, res) => {
   if (!req.user) {
     req.flash('error', 'Please sign in to update profile')
     res.redirect('/signin')
@@ -175,15 +175,18 @@ router.get("/update-user", (req, res) => {
 
 });
 
-router.post("/update-user", (req, res) => {
+router.post("/update", upload.single("avatar"), (req, res) => {
 
   const { realname, location, morality, origin, bio, gen, str, spe, sen, hea, fly, tou, psy, mag, ele } = req.body;
 
   let skills = {
     gen, str, spe, sen, hea, fly, tou, psy, mag, ele
   }
+
+  console.log(req.file);
+  let avatar = req.file ? req.file.filename : req.user.avatar;
   
-  User.findByIdAndUpdate(req.user._id, { realname, location, skills, morality, origin, bio })
+  User.findByIdAndUpdate(req.user._id, { realname, avatar, location, skills, morality, origin, bio })
     .then(() => {
       res.redirect('dashboard')
     })
@@ -192,5 +195,39 @@ router.post("/update-user", (req, res) => {
     })
 
 });
+
+
+
+router.get('/delete', (req, res, next)=>{
+
+  if (!req.user) {
+    req.flash('error', 'Please sign in to delete profile')
+    res.redirect('/signin')
+  }
+
+  res.render("user/deleteuser", { user: req.user, imgpath });
+
+})
+
+router.post('/delete', (req, res, next)=>{
+
+  let { password } = req.body;
+  let user = req.user;
+
+  if (bcrypt.compareSync(password, user.password)) {
+
+    User.findByIdAndRemove(user._id)
+    .then(()=>{
+        res.redirect('/'); // Add user deleted successfully!
+    })
+    .catch((err)=>{
+        next(err);
+    })
+
+  } else {
+    res.render("user/deleteuser", { message: "Incorrect Password!" });
+  }
+
+})
 
 module.exports = router;
