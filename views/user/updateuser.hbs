@@ -27,48 +27,58 @@
     <label for="morality">Moral Alignment: </label>
     <select name="morality" id="morality">
       <option value="">Select Your Morality Below...</option>
-      <option value="Good | Lawful">Good | Lawful</option>
-      <option value="Good | Neutral">Good | Neutral</option>
-      <option value="Good | Chaotic">Good | Chaotic</option>
-      <option value="Neutral | Lawful">Neutral | Lawful</option>
-      <option value="True Neutral">True Neutral</option>
-      <option value="Neutral | Chaotic">Neutral | Chaotic</option>
-      <option value="Evil | Lawful">Evil | Lawful</option>
-      <option value="Evil | Neutral">Evil | Neutral</option>
-      <option value="Evil | Chaotic">Evil | Chaotic</option>
+      <option value="Good | Lawful" {{moral.gl}}> Good | Lawful</option>
+      <option value="Good | Neutral"  {{moral.gn}}>Good | Neutral</option>
+      <option value="Good | Chaotic"  {{moral.gc}}>Good | Chaotic</option>
+      <option value="Neutral | Lawful"  {{moral.nl}}>Neutral | Lawful</option>
+      <option value="True Neutral"  {{moral.nn}}>True Neutral</option>
+      <option value="Neutral | Chaotic"  {{moral.nc}}>Neutral | Chaotic</option>
+      <option value="Evil | Lawful"  {{moral.el}}>Evil | Lawful</option>
+      <option value="Evil | Neutral"  {{moral.en}}>Evil | Neutral</option>
+      <option value="Evil | Chaotic"  {{moral.ec}}>Evil | Chaotic</option>
     </select>
   </div>
 
   <div class="form-item">
-    <label for="option1">Genius IQ</label>
-    <input name="option1" type="checkbox" value="Genius IQ">
+    <label for="gen">Genius IQ</label>
+    <input name="gen" type="checkbox" value="Genius IQ" 
+    {{#if user.skills.gen }}checked{{/if}}>
     
-    <label for="option2">Super Strength</label>
-    <input name="option2" type="checkbox" value="Super Strength">
+    <label for="str">Super Strength</label>
+    <input name="str" type="checkbox" value="Super Strength"
+    {{#if user.skills.str }}checked{{/if}}>
     
-    <label for="option3">Super Speed</label>
-    <input name="option3" type="checkbox" value="Super Speed">
+    <label for="spe">Super Speed</label>
+    <input name="spe" type="checkbox" value="Super Speed"
+    {{#if user.skills.spe }}checked{{/if}}>
     
-    <label for="option4">Super Senses</label>
-    <input name="option4" type="checkbox" value="Super Senses">
+    <label for="sen">Super Senses</label>
+    <input name="sen" type="checkbox" value="Super Senses"
+    {{#if user.skills.sen }}checked{{/if}}>
     
-    <label for="option5">Healing</label>
-    <input name="option5" type="checkbox" value="Healing">
+    <label for="hea">Healing</label>
+    <input name="hea" type="checkbox" value="Healing"
+    {{#if user.skills.hea }}checked{{/if}}>
     
-    <label for="option6">Flying</label>
-    <input name="option6" type="checkbox" value="Flying">
+    <label for="fly">Flying</label>
+    <input name="fly" type="checkbox" value="Flying"
+    {{#if user.skills.fly }}checked{{/if}}>
     
-    <label for="option7">Super Toughness</label>
-    <input name="option7" type="checkbox" value="Super Toughness">
+    <label for="tou">Super Toughness</label>
+    <input name="tou" type="checkbox" value="Super Toughness"
+    {{#if user.skills.tou }}checked{{/if}}>
     
-    <label for="option8">Psychic</label>
-    <input name="option8" type="checkbox" value="Psychic">
+    <label for="psy">Psychic</label>
+    <input name="psy" type="checkbox" value="Psychic"
+    {{#if user.skills.psy }}checked{{/if}}>
     
-    <label for="option9">Magic</label>
-    <input name="option9" type="checkbox" value="Magic">
+    <label for="mag">Magic</label>
+    <input name="mag" type="checkbox" value="Magic"
+    {{#if user.skills.mag }}checked{{/if}}>
     
-    <label for="option10">Elemental Control</label>
-    <input name="option10" type="checkbox" value="Elemental Control">
+    <label for="ele">Elemental Control</label>
+    <input name="ele" type="checkbox" value="Elemental Control"
+    {{#if user.skills.ele }}checked{{/if}}>
   </div>
 
 

@@ -37,11 +37,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-hbs.registerHelper('trimString', function(passedString) {
-  var theString = passedString.substring(6);
-  return new hbs.SafeString(theString)
-});
-
 
 // Express View engine setup
 
@@ -54,7 +49,8 @@ app.use(require('node-sass-middleware')({
 app.use(session({
   secret: "comeback-mode-activated",
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: { maxAge: 1000 * 60 * 60 },
 }));
 
 passport.serializeUser((user, cb) => {

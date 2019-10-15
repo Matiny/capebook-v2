@@ -96,7 +96,18 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
           password: hashPass,
           avatar: req.file.filename,
           realname: "",
-          skills: "",
+          skills : { 
+            gen: "",
+            str: "",
+            spe: "",
+            sen: "",
+            hea: "",
+            fly: "",
+            tou: "",
+            psy: "",
+            mag: "",
+            ele: ""
+          },
           morality: "",
           location: "",
           origin: ""
@@ -120,7 +131,6 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
 
 });
 
-
 /*------------ USER Routes ------------ */
 
 let imgpath = "img/avatar/";
@@ -131,6 +141,7 @@ router.get("/dashboard", (req, res) => {
     req.flash('error', 'Please sign in to view Dashboard')
     res.redirect('/signin')
   }
+
   res.render("user/dashboard", { user: req.user, imgpath });
 
 });
@@ -146,24 +157,33 @@ router.get("/update-user", (req, res) => {
     req.flash('error', 'Please sign in to update profile')
     res.redirect('/signin')
   }
-  let skills = req.user.skills.split(",");
 
-  res.render("user/updateuser", { user: req.user, imgpath, skills });
-  console.log(skills);
+  let moral = {
+    gl : req.user.morality === "Good | Lawful" ? "selected" : "",
+    gn : req.user.morality === "Good | Neutral" ? "selected" : "",
+    gc : req.user.morality === "Good | Chaotic" ? "selected" : "",
+    nl : req.user.morality === "Neutral | Lawful" ? "selected" : "",
+    nn : req.user.morality === "True Neutral" ? "selected" : "",
+    nc : req.user.morality === "Neutral | Chaotic" ? "selected" : "",
+    el : req.user.morality === "Evil | Lawful" ? "selected" : "",
+    en : req.user.morality === "Evil | Neutral" ? "selected" : "",
+    ec : req.user.morality === "Evil | Chaotic" ? "selected" : "",
+  }
+  
+  res.render("user/updateuser", { user: req.user, imgpath, moral });
+  console.log(req.user);
 
 });
 
 router.post("/update-user", (req, res) => {
 
-  const { realname, location, morality, origin, bio, option1, option2, option3, option4, option5, option6, option7, option8, option9, option10 } = req.body;
+  const { realname, location, morality, origin, bio, gen, str, spe, sen, hea, fly, tou, psy, mag, ele } = req.body;
 
-  let skills = [option1, option2, option3, option4, option5, option6, option7, option8, option9, option10];
-
-  skills = skills.filter(item => item !== undefined).join(",");
-
-  console.log(skills);
+  let skills = {
+    gen, str, spe, sen, hea, fly, tou, psy, mag, ele
+  }
   
-  User.findByIdAndUpdate(req.user._id, { realname, skills })
+  User.findByIdAndUpdate(req.user._id, { realname, location, skills, morality, origin, bio })
     .then(() => {
       res.redirect('dashboard')
     })
