@@ -1,6 +1,28 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema({
+const storySchema = new Schema({
+  title: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  year: {
+    type: String
+  },
+  format: {
+    type: String
+  },
+  actor: {
+    type: String
+  },
+  plot: {
+    type: String
+  },
+})
+
+
+const userSchema = new Schema({
   username: {
     type: String,
     unique: true,
@@ -50,8 +72,7 @@ const userSchema = new mongoose.Schema({
   morality: { type: String },
   origin: { type: String },
   bio: { type: String },
-  // media: {type: Schema.Types.ObjectId, ref: 'Media'}
-
+  media: [storySchema]
 });
 
 let User = mongoose.model("User", userSchema);

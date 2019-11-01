@@ -96,7 +96,7 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
           password: hashPass,
           avatar: req.file.filename,
           realname: "",
-          skills : { 
+          skills: {
             gen: "",
             str: "",
             spe: "",
@@ -110,7 +110,8 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
           },
           morality: "",
           location: "",
-          origin: ""
+          origin: "",
+          bio: "",
         });
 
         newUser.save((err) => {
@@ -118,7 +119,12 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
             res.render("auth/signup", { message: "Please try again!" });
             console.log(err);
           } else {
-            res.redirect("/signin");
+            req.login(newUser, function (err) {
+              if (err) {
+                console.log(err);
+              }
+              return res.redirect('/dashboard');
+            });
           }
         });
       })
@@ -159,17 +165,17 @@ router.get("/update", (req, res) => {
   }
 
   let moral = {
-    gl : req.user.morality === "Good | Lawful" ? "selected" : "",
-    gn : req.user.morality === "Good | Neutral" ? "selected" : "",
-    gc : req.user.morality === "Good | Chaotic" ? "selected" : "",
-    nl : req.user.morality === "Neutral | Lawful" ? "selected" : "",
-    nn : req.user.morality === "True Neutral" ? "selected" : "",
-    nc : req.user.morality === "Neutral | Chaotic" ? "selected" : "",
-    el : req.user.morality === "Evil | Lawful" ? "selected" : "",
-    en : req.user.morality === "Evil | Neutral" ? "selected" : "",
-    ec : req.user.morality === "Evil | Chaotic" ? "selected" : "",
+    gl: req.user.morality === "Good | Lawful" ? "selected" : "",
+    gn: req.user.morality === "Good | Neutral" ? "selected" : "",
+    gc: req.user.morality === "Good | Chaotic" ? "selected" : "",
+    nl: req.user.morality === "Neutral | Lawful" ? "selected" : "",
+    nn: req.user.morality === "True Neutral" ? "selected" : "",
+    nc: req.user.morality === "Neutral | Chaotic" ? "selected" : "",
+    el: req.user.morality === "Evil | Lawful" ? "selected" : "",
+    en: req.user.morality === "Evil | Neutral" ? "selected" : "",
+    ec: req.user.morality === "Evil | Chaotic" ? "selected" : "",
   }
-  
+
   res.render("user/updateuser", { user: req.user, imgpath, moral });
   console.log(req.user);
 
@@ -185,7 +191,7 @@ router.post("/update", upload.single("avatar"), (req, res) => {
 
   console.log(req.file);
   let avatar = req.file ? req.file.filename : req.user.avatar;
-  
+
   User.findByIdAndUpdate(req.user._id, { realname, avatar, location, skills, morality, origin, bio })
     .then(() => {
       res.redirect('dashboard')
@@ -198,7 +204,7 @@ router.post("/update", upload.single("avatar"), (req, res) => {
 
 
 
-router.get('/delete', (req, res, next)=>{
+router.get('/delete', (req, res, next) => {
 
   if (!req.user) {
     req.flash('error', 'Please sign in to delete profile')
@@ -209,7 +215,7 @@ router.get('/delete', (req, res, next)=>{
 
 })
 
-router.post('/delete', (req, res, next)=>{
+router.post('/delete', (req, res, next) => {
 
   let { password } = req.body;
   let user = req.user;
@@ -217,12 +223,12 @@ router.post('/delete', (req, res, next)=>{
   if (bcrypt.compareSync(password, user.password)) {
 
     User.findByIdAndRemove(user._id)
-    .then(()=>{
+      .then(() => {
         res.redirect('/'); // Add user deleted successfully!
-    })
-    .catch((err)=>{
+      })
+      .catch((err) => {
         next(err);
-    })
+      })
 
   } else {
     res.render("user/deleteuser", { message: "Incorrect Password!" });
