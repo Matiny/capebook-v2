@@ -4,10 +4,12 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/stories', (req, res, next) => {
-  User.find()
+  User.findOne({username: req.user.username})
     .then((user) => {
-      res.render("content/story", { user })
-      // console.log(user);
+      res.render("content/story", { stories: user.media })
+      console.log(user);
+      console.log(user.username);
+      console.log(user.media);
     })
     .catch((err) => {
       console.log(err);
