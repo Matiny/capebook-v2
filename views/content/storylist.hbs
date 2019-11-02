@@ -1,0 +1,10 @@
+
+<section>
+  <h1>Story List</h1>
+  {{#each stories}}
+  <p>{{this.title}}</p>
+  <button>
+    <a href="/stories/{{this._id}}">Edit This Story</a>
+  </button>
+  {{/each}}
+</section>

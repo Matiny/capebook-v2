@@ -53,7 +53,7 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post("/signin", passport.authenticate("local", {
-  successRedirect: "/dashboard",
+  successRedirect: "/stories",
   failureRedirect: "/signin",
   badRequestMessage: "Please enter both Name and Password",
   failureFlash: true,
@@ -194,7 +194,7 @@ router.post("/update", upload.single("avatar"), (req, res) => {
 
   User.findByIdAndUpdate(req.user._id, { realname, avatar, location, skills, morality, origin, bio })
     .then(() => {
-      res.redirect('dashboard')
+      res.redirect('/dashboard')
     })
     .catch((err) => {
       next(err);
