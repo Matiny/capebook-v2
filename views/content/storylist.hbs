@@ -15,11 +15,11 @@
     <label for="format">Format: </label>
     <select name="format" id="format">
       <option value="">Please select the format...</option>
-      <option value="Movie" >Movie</option>
-      <option value="Video Game" >Video Game</option>
-      <option value="Comic" >Comic</option>
-      <option value="TV Show" >TV Show</option>
-      <option value="Book" >Book</option>
+      <option value="Movie">Movie</option>
+      <option value="Video Game">Video Game</option>
+      <option value="Comic">Comic</option>
+      <option value="TV Show">TV Show</option>
+      <option value="Book">Book</option>
     </select>
   </div>
 
@@ -42,11 +42,18 @@
 </form>
 
 <section>
+
   <h1>Story List</h1>
   {{#each stories}}
   <p>{{this.title}}</p>
+
   <button>
     <a href="/stories/{{this._id}}">Edit This Story</a>
   </button>
+
+  <form action="/deletestory/{{this._id}}" method="POST">
+    <button class="btn">Delete This Story</button>
+  </form>
+
   {{/each}}
 </section>

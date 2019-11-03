@@ -87,5 +87,23 @@ router.post('/stories/:storyID', (req, res, next)=>{
   }
 })
 
+router.post('/deletestory/:storyID', (req, res, next)=>{
+  let theID = req.params.storyID;
+
+  User.findOne({username: req.user.username})
+  .then((user) => {
+    let newArr = user.media.filter(story => `${story._id}` !== `${theID}`);
+    user.media = newArr;
+    console.log(newArr);
+    user.save();
+    res.redirect("/stories");
+  })
+  .catch((err) => {
+    console.log(err);
+    next(err);
+  })
+})
+
+
 
 module.exports = router;
