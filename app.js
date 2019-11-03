@@ -105,4 +105,7 @@ app.use('/', index);
 const media = require('./routes/media');
 app.use('/', media);
 
+const post = require('./routes/post');
+app.use('/', post);
+
 module.exports = app;

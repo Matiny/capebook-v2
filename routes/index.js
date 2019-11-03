@@ -53,7 +53,7 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post("/signin", passport.authenticate("local", {
-  successRedirect: "/stories",
+  successRedirect: "/posts",
   failureRedirect: "/signin",
   badRequestMessage: "Please enter both Name and Password",
   failureFlash: true,

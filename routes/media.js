@@ -10,7 +10,7 @@ router.get('/stories', (req, res, next) => {
   }
   User.findOne({username: req.user.username})
     .then((user) => {
-      res.render("content/storylist", { stories: user.media })
+      res.render("story/storylist", { stories: user.media })
     })
     .catch((err) => {
       console.log(err);
@@ -37,7 +37,7 @@ router.get('/stories/:storyID', (req, res, next) => {
         book : editArr.format === "Book" ? "selected" : "",
       }
 
-      res.render("content/editstory", { oneStory: editArr, format });
+      res.render("story/editstory", { oneStory: editArr, format });
     })
     .catch((err) => {
       console.log(err);
@@ -49,7 +49,7 @@ router.post('/stories', (req, res, next) => {
   let { title, year, format, actor, plot } = req.body;
 
   if (!title) {
-    res.render("content/story", { message: "Please Enter a Title" });
+    res.render("story/storylist", { message: "Please Enter a Title" });
     return;
   } else {
     User.findOne({username: req.user.username})
@@ -69,7 +69,7 @@ router.post('/stories/:storyID', (req, res, next)=>{
   let theID = req.params.storyID;
   let { title, year, format, actor, plot } = req.body;
   if (!title) {
-    res.render("content/story", { message: "Please Enter a Title" });
+    res.render("story/story", { message: "Please Enter a Title" });
     return;
   } else {
     User.findOne({username: req.user.username})
@@ -103,7 +103,5 @@ router.post('/deletestory/:storyID', (req, res, next)=>{
     next(err);
   })
 })
-
-
 
 module.exports = router;
