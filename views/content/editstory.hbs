@@ -9,8 +9,8 @@
     <p>Sign Up</p>
   </a>
 </nav>
-<form action="/stories" method="POST">
-  <h1>Add Media</h1>
+<form action="/stories/{{oneStory._id}}" method="POST">
+  <h1>Story Update!</h1>
 
   <div class="form-item">
     <label for="title">Title: </label>
@@ -19,32 +19,32 @@
 
   <div class="form-item">
     <label for="year">Year: </label>
-    <input name="year" id="year" type="text" placeholder="Release Year">
+    <input name="year" id="year" type="text" placeholder="Release Year" value="{{oneStory.year}}">
   </div>
 
   <div class="form-item">
     <label for="format">Format: </label>
     <select name="format" id="format">
       <option value="">Please select the format...</option>
-      <option value="Movie">Movie</option>
-      <option value="Video Game">Video Game</option>
-      <option value="Comic">Comic</option>
-      <option value="TV Show">TV Show</option>
-      <option value="Book">Book</option>
+      <option value="Movie" {{format.movie}}>Movie</option>
+      <option value="Video Game" {{format.game}}>Video Game</option>
+      <option value="Comic" {{format.comic}}>Comic</option>
+      <option value="TV Show" {{format.tv}}>TV Show</option>
+      <option value="Book" {{format.book}}>Book</option>
     </select>
   </div>
 
   <div class="form-item">
     <label for="actor">Actor: </label>
-    <input name="actor" id="actor" type="text" placeholder="Who portrayed the character">
+    <input name="actor" id="actor" type="text" placeholder="Who portrayed the character" value="{{oneStory.actor}}">
   </div>
 
   <div class="form-item">
     <label for="plot">Plot: </label>
-    <textarea name="plot" id="" cols="30" rows="10" placeholder="A summary of the plot"></textarea>
+    <textarea name="plot" id="" cols="30" rows="10" placeholder="A summary of the plot">{{oneStory.plot}}</textarea>
   </div>
 
-  <button type="submit">Add Story!</button>
+  <button type="submit">Finish Updating!</button>
 
   {{#if message}}
   <div class="error-message">{{ message }}</div>
