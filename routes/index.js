@@ -60,6 +60,19 @@ router.post("/signin", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
+router.post("/aquaman", (req, res, next) => {
+  User.findOne({username: "Aquaman"})
+  .then((aquaman) => {
+    req.login(aquaman, function (err) {
+      if (err) {
+        console.log(err);
+      }
+      return res.redirect('/dashboard');
+    });
+  })
+  
+})
+
 router.post('/signup', upload.single("avatar"), (req, res, next) => {
 
   const { username, password, password2, } = req.body;

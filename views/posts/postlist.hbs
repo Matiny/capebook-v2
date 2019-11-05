@@ -1,0 +1,33 @@
+<h1>Post Area</h1>
+
+
+<form action="/posts" method="POST">
+
+
+  <p>Speak your mind here...</p>
+  <textarea name="message" cols="40" rows="10"></textarea>
+
+  <button>Submit Post</button>
+
+</form>
+
+
+{{#if message}}
+<div class="error-message">{{ message }}</div>
+{{/if}}
+
+{{#each allPosts}}
+
+<p>{{this.message}}</p>
+
+<button>
+  <a href="/posts/{{this._id}}">Edit This Post</a>
+</button>
+
+{{#if this.owned}}
+<form action="/deletepost/{{this._id}}" method="POST">
+  <button class="btn">Delete This Post</button>
+</form>
+{{/if}}
+
+{{/each}}
