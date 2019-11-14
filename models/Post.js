@@ -1,6 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const replySchema = new Schema({
+  message: {
+    type: String,
+    required: true
+  },
+  author: {
+    type: Schema.Types.ObjectId, ref: 'User'
+  },
+  likes: {
+    type: [{type: Schema.Types.ObjectId, ref: 'User'}]
+  },
+  edited: Boolean,
+})
+
 const postSchema = new Schema({
   message: {
     type: String,
@@ -13,8 +27,9 @@ const postSchema = new Schema({
     type: [{type: Schema.Types.ObjectId, ref: 'User'}]
   },
   replies: {
-    type: [{type: Schema.Types.ObjectId, ref: 'Post'}]
-  }
+    type: [replySchema]
+  },
+  edited: Boolean,
 })
 
 let Post = mongoose.model("Post", postSchema);

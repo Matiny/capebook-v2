@@ -1,8 +1,8 @@
+{{> header }}
 <h1>Post Area</h1>
 
 
 <form action="/posts" method="POST">
-
 
   <p>Speak your mind here...</p>
   <textarea name="message" cols="40" rows="10"></textarea>
@@ -20,14 +20,24 @@
 
 <p>{{this.message}}</p>
 
+<p>{{this.replies.length}} Responses</p>
+
+<button>
+  <a href="/posts/{{this._id}}/reply">Leave a reply</a>
+</button>
+
+
+{{#if this.owned}}
 <button>
   <a href="/posts/{{this._id}}">Edit This Post</a>
 </button>
-
-{{#if this.owned}}
 <form action="/deletepost/{{this._id}}" method="POST">
   <button class="btn">Delete This Post</button>
 </form>
+{{/if}}
+
+{{#if this.edited}}
+<p><em>(Edited)</em></p>
 {{/if}}
 
 {{/each}}

@@ -1,0 +1,18 @@
+{{> header }}
+<h1>Edit Post</h1>
+
+
+<form action="/posts/{{thePost._id}}" method="POST">
+
+
+  <p>Speak your mind here...</p>
+  <textarea name="message" cols="40" rows="10">{{thePost.message}}</textarea>
+
+  <button>Update Post</button>
+
+</form>
+
+
+{{#if message}}
+<div class="error-message">{{ message }}</div>
+{{/if}}

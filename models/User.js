@@ -73,7 +73,6 @@ const userSchema = new Schema({
   origin: { type: String },
   bio: { type: String },
   media: [storySchema],
-  // posts: [{type: Schema.Types.ObjectId, ref: 'Post'}]
 });
 
 let User = mongoose.model("User", userSchema);

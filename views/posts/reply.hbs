@@ -1,0 +1,38 @@
+{{> header }}
+<h1>Leave a reply to...</h1>
+
+<p>"{{thePost.message}}"</p>
+<form action="/posts/{{thePost._id}}/reply" method="POST">
+
+  <p>Speak your mind here...</p>
+  <textarea name="message" cols="40" rows="10"></textarea>
+
+  <button>Submit Reply</button>
+
+</form>
+
+
+{{#if message}}
+<div class="error-message">{{ message }}</div>
+{{/if}}
+
+{{#each allReplies}}
+
+<h2>All replies</h2>
+
+<p>{{this.message}}</p>
+
+{{#if this.owned}}
+<button>
+  <a href="/posts/{{this._id}}">Edit This Reply</a>
+</button>
+<form action="/deletereply/{{this.parentID}}/{{this._id}}" method="POST">
+  <button class="btn">Delete This Reply</button>
+</form>
+{{/if}}
+
+{{#if this.edited}}
+<p><em>(Edited)</em></p>
+{{/if}}
+
+{{/each}}

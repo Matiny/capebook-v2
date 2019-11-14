@@ -94,7 +94,6 @@ router.post('/deletestory/:storyID', (req, res, next)=>{
   .then((user) => {
     let newArr = user.media.filter(story => `${story._id}` !== `${theID}`);
     user.media = newArr;
-    console.log(newArr);
     user.save();
     res.redirect("/stories");
   })
