@@ -37,9 +37,14 @@ const upload = multer({
   fileFilter
 });
 
+let imgpath = "img/avatar/";
+let bgpath = "img/bgs/";
+
 /*------------ AUTH Routes ------------ */
 router.get('/', (req, res, next) => {
+
   res.render('index');
+
 });
 
 router.get('/signin', (req, res, next) => {
@@ -61,16 +66,16 @@ router.post("/signin", passport.authenticate("local", {
 }));
 
 router.post("/aquaman", (req, res, next) => {
-  User.findOne({username: "Aquaman"})
-  .then((aquaman) => {
-    req.login(aquaman, function (err) {
-      if (err) {
-        console.log(err);
-      }
-      return res.redirect('/dashboard');
-    });
-  })
-  
+  User.findOne({ username: "Aquaman" })
+    .then((aquaman) => {
+      req.login(aquaman, function (err) {
+        if (err) {
+          console.log(err);
+        }
+        return res.redirect('/dashboard');
+      });
+    })
+
 })
 
 router.post('/signup', upload.single("avatar"), (req, res, next) => {
@@ -152,7 +157,6 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
 
 /*------------ USER Routes ------------ */
 
-let imgpath = "img/avatar/";
 
 //By default it goes to /login, here it goes to /signin
 router.get("/dashboard", (req, res) => {

@@ -28,9 +28,7 @@
 
 
 {{#if this.owned}}
-<button>
-  <a href="/posts/{{this._id}}">Edit This Post</a>
-</button>
+
 <form action="/deletepost/{{this._id}}" method="POST">
   <button class="btn">Delete This Post</button>
 </form>
