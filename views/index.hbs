@@ -1,9 +1,20 @@
 <main>
-  <h1>Capebook</h1>
-  <p>All Your Favorites, In One Place</p>
+  {{> header }}
+  <section id="splash">
+    <img src="img/svg/cb-logo-new.svg" alt="">
+    <h1>ALL YOUR FAVORITES, IN ONE PLACE</h1>
 
-  <form action="/aquaman" method="POST">
-    <button class="btn">Login as Aquaman</button>
-  </form>
+    <div id="auth-buttons">
+      <button>Sign In</button>
+      <button>Sign Up</button>
+    </div>
+
+    
+
+    {{!-- <form action="/aquaman" method="POST">
+      <button class="btn">Login as Aquaman</button>
+    </form> --}}
+
+  </section>
 
 </main>

@@ -21,7 +21,6 @@ const storySchema = new Schema({
   },
 })
 
-
 const userSchema = new Schema({
   username: {
     type: String,
@@ -54,7 +53,7 @@ const userSchema = new Schema({
     fly: {
       type: String,
     },
-    tou: {
+    mar: {
       type: String,
     },
     psy: {
@@ -68,7 +67,7 @@ const userSchema = new Schema({
     },
    },
   realname: { type: String },
-  location: { type: String },
+  hq: { type: String },
   morality: { type: String },
   origin: { type: String },
   bio: { type: String },

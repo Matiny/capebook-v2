@@ -1,17 +1,80 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap");
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
 
 nav {
-  background: rgba(0, 0, 0, 0.5); }
+  background: rgba(0, 0, 0, 0.33);
+  font-weight: bold;
+  color: white;
+}
+
+nav #greeting {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5vw;
+  text-align: center;
+}
+
+nav p {
+  width: 20%;
+  padding-bottom: 0.25%;
+}
+
+nav #icon {
+  width: 5%;
+}
 
 main {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-  background-color: black; }
+  background-color: black;
+}
 
+#splash {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+#splash img {
+  width: 66%;
+}
+
+#splash h1 {
+  font-size: 2vw;
+}
+
+#splash button {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.33);
+  border: none;
+  font-size: 2vw;
+  padding: 3% 4%;
+  padding-bottom: 4%;
+}
+
+#auth-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 75%;
+  margin: 0 auto;
+}
 /*# sourceMappingURL=cb.css.map */

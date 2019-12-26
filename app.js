@@ -96,7 +96,7 @@ hbs.registerPartials(__dirname + '/views/partials')
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Capebook | A Site for Superheroes';
 
 
 const index = require('./routes/index');
