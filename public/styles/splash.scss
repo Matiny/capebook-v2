@@ -1,7 +1,17 @@
 * {
   margin: 0;
   padding: 0;
+  border: none;
+  outline: none;
   font-family: 'Montserrat', sans-serif;
+}
+
+
+@mixin positions($Xvalue, $Yvalue) {
+  position: absolute;
+  top: $Yvalue;
+  left: $Xvalue;
+  transform: translate(-$Xvalue, -$Yvalue);
 }
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap');
@@ -19,9 +29,11 @@ nav {
     text-align: center;
   }
 
-  p {
-    width: 20%;
+  p, a {
     padding-bottom: 0.25%;
+    width: 20%;
+    text-decoration: none;
+    color: white;
   }
 
   #icon {
@@ -50,19 +62,20 @@ main {
     width: 66%;
   }
 
-  h1 {
+  #subtitle {
     font-size: 2vw;
+    padding-bottom: 5%;
   }
 
-  button {
+  button, a {
     color: white;
     background-color: rgba(black, 0.33);
-    border: none;
     font-size: 2vw;
     padding: 3% 4%;
     padding-bottom: 4%;
+    cursor: pointer;
+    text-decoration: none;
   }
-
 }
 
 #auth-buttons {
@@ -70,4 +83,38 @@ main {
   justify-content: space-around;
   width: 75%;
   margin: 0 auto;
+  padding-bottom: 7.5%;
+}
+
+#char-buttons {
+  display: flex;
+  justify-content: space-around;
+  #bat-button {
+    background-color: rgba(black, 0.33);
+  }
+  form {
+    width: 30%;
+  }
+  button {
+    padding: 0;
+    position: relative;
+    width: 100%;
+  
+    p:first-child {
+      @include positions(50%, 10%);
+      font-weight: 300;
+      font-size: 1.5vw;
+      width: 100%;
+    }
+    p:nth-child(2) {
+      @include positions(50%, 50%);
+      text-shadow: 0 0.25vw 0.25vw #000;
+      z-index: 5;
+      font-size: 2.25vw;
+    }
+    img {
+      width: 100%;
+      opacity: 0.3;
+    }
+  }
 }

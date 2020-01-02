@@ -78,6 +78,19 @@ router.post("/aquaman", (req, res, next) => {
 
 })
 
+router.post("/batman", (req, res, next) => {
+  User.findOne({ username: "Batman" })
+    .then((batman) => {
+      req.login(batman, function (err) {
+        if (err) {
+          console.log(err);
+        }
+        return res.redirect('/dashboard');
+      });
+    })
+
+})
+
 router.post('/signup', upload.single("avatar"), (req, res, next) => {
 
   const { username, password, password2, } = req.body;

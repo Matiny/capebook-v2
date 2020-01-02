@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-family: 'Montserrat', sans-serif; }
+
+nav {
+  background: rgba(0, 0, 0, 0.33);
+  font-weight: bold;
+  color: white; }
+  nav #greeting {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.5vw;
+    text-align: center; }
+  nav p, nav a {
+    padding-bottom: 0.25%;
+    width: 20%;
+    text-decoration: none;
+    color: white; }
+  nav #icon {
+    width: 5%; }
+
+main {
+  min-height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: black; }
+
+#splash {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  color: white; }
+  #splash img {
+    width: 66%; }
+  #splash #subtitle {
+    font-size: 2vw;
+    padding-bottom: 5%; }
+  #splash button, #splash a {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.33);
+    font-size: 2vw;
+    padding: 3% 4%;
+    padding-bottom: 4%;
+    cursor: pointer;
+    text-decoration: none; }
+
+#auth-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 75%;
+  margin: 0 auto;
+  padding-bottom: 7.5%; }
+
+#char-buttons {
+  display: flex;
+  justify-content: space-around; }
+  #char-buttons #bat-button {
+    background-color: rgba(0, 0, 0, 0.33); }
+  #char-buttons form {
+    width: 30%; }
+  #char-buttons button {
+    padding: 0;
+    position: relative;
+    width: 100%; }
+    #char-buttons button p:first-child {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -10%);
+      font-weight: 300;
+      font-size: 1.5vw;
+      width: 100%; }
+    #char-buttons button p:nth-child(2) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-shadow: 0 0.25vw 0.25vw #000;
+      z-index: 5;
+      font-size: 2.25vw; }
+    #char-buttons button img {
+      width: 100%;
+      opacity: 0.3; }
+
+/*# sourceMappingURL=splash.css.map */

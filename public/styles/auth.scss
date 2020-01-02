@@ -1,0 +1,66 @@
+.form-wrapper {
+  display: flex;
+  margin-top: 5%;
+  justify-content: center;
+  text-align: center;
+  #signup, #signin {
+    padding: 2.5% 0;
+    background-color: rgba(black, 0.33);
+    width: 33%;
+    color: white;
+
+    h1 {
+      font-size: 2.5vw;
+      margin-bottom: 5%;
+    }
+
+    label, input {
+      font-size: 1.25vw;
+    }
+
+    label {
+      display: block;
+    }
+    label[for="avatar"] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: 0 auto 7.5% auto;
+      background-color: rgba(white, 0.33);
+      padding: 2.5%;
+      cursor: pointer;
+    }
+    input {
+      background: transparent;
+      border-bottom: 0.15vw solid white;
+      width: 66%;
+      padding: 2% 0;
+      text-align: center;
+      color: white;
+      margin-bottom: 3%;
+    }
+
+    #avatar {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+
+    #add-photo-icon {
+      width: 10%;
+    }
+
+    button {
+      font-size: 1.5vw;
+      font-weight: bold;
+      color: white;
+      background-color: rgba(white, 0.33);
+      padding: 2.5%;
+    }
+  }
+}
+
