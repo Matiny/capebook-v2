@@ -1,102 +1,135 @@
-<nav>
-  <a href="/">
-    <img src="{{img.icon}}">
-  </a>
-  <a href="">
-    <p>Sign In</p>
-  </a>
-  <a href="">
-    <p>Sign Up</p>
-  </a>
-</nav>
-
-<form action="/update" method="POST" enctype="multipart/form-data">
-  <h1>Update Character</h1>
-  <div class="form-item">
-    <label for="realname">Real Name: </label>
-    <input name="realname" id="realname" type="text" placeholder="Reveal your true identity" value="{{user.realname}}">
-  </div>
- 
-  <div class="form-item">
-    <label for="avatar">Choose your Avatar:</label>
-    <input id="avatar" name="avatar" type="file" accept="image/*">
-  </div>
-
-  <div class="form-item">
-    <label for="hq">HQ: </label>
-    <input name="hq" id="hq" type="text" placeholder="Where do you operate from?">
-  </div>
-  <div class="form-item">
-    <label for="origin">1st Appearance:</label>
-    <input name="origin" id="origin" type="text" placeholder="Where'd you make your debut?">
-  </div>
-  <div class="form-item">
-    <label for="morality">Moral Alignment: </label>
-    <select name="morality" id="morality">
-      <option value="">Select Your Morality Below...</option>
-      <option value="Good | Lawful" {{moral.gl}}> Good | Lawful</option>
-      <option value="Good | Neutral"  {{moral.gn}}>Good | Neutral</option>
-      <option value="Good | Chaotic"  {{moral.gc}}>Good | Chaotic</option>
-      <option value="Neutral | Lawful"  {{moral.nl}}>Neutral | Lawful</option>
-      <option value="True Neutral"  {{moral.nn}}>True Neutral</option>
-      <option value="Neutral | Chaotic"  {{moral.nc}}>Neutral | Chaotic</option>
-      <option value="Evil | Lawful"  {{moral.el}}>Evil | Lawful</option>
-      <option value="Evil | Neutral"  {{moral.en}}>Evil | Neutral</option>
-      <option value="Evil | Chaotic"  {{moral.ec}}>Evil | Chaotic</option>
-    </select>
-  </div>
-
-  <div class="form-item">
-    <label for="gen">Genius IQ</label>
-    <input name="gen" type="checkbox" value="Genius IQ" 
-    {{#if user.skills.gen }}checked{{/if}}>
-    
-    <label for="str">Super Strength</label>
-    <input name="str" type="checkbox" value="Super Strength"
-    {{#if user.skills.str }}checked{{/if}}>
-    
-    <label for="spe">Super Speed</label>
-    <input name="spe" type="checkbox" value="Super Speed"
-    {{#if user.skills.spe }}checked{{/if}}>
-    
-    <label for="sen">Super Senses</label>
-    <input name="sen" type="checkbox" value="Super Senses"
-    {{#if user.skills.sen }}checked{{/if}}>
-    
-    <label for="hea">Healing</label>
-    <input name="hea" type="checkbox" value="Healing"
-    {{#if user.skills.hea }}checked{{/if}}>
-    
-    <label for="fly">Flying</label>
-    <input name="fly" type="checkbox" value="Flying"
-    {{#if user.skills.fly }}checked{{/if}}>
-    
-    <label for="mar">Martial Arts</label>
-    <input name="mar" type="checkbox" value="Martial Arts"
-    {{#if user.skills.mar }}checked{{/if}}>
-    
-    <label for="psy">Psychic</label>
-    <input name="psy" type="checkbox" value="Psychic"
-    {{#if user.skills.psy }}checked{{/if}}>
-    
-    <label for="mag">Magic</label>
-    <input name="mag" type="checkbox" value="Magic"
-    {{#if user.skills.mag }}checked{{/if}}>
-    
-    <label for="ele">Elemental Powers</label>
-    <input name="ele" type="checkbox" value="Elemental Powers"
-    {{#if user.skills.ele }}checked{{/if}}>
-  </div>
-
-
-  <div class="form-item">
-    <label for="bio">Bio: </label>
-    <textarea name="bio" id="" cols="30" rows="10" placeholder="Give a brief description about yourself">
+<main>
+  {{> header}}
+  <form id="edit-profile" action="/update" method="POST" enctype="multipart/form-data">
+    <h1>{{user.username}}</h1>
+    <div id="edit-basic">
+      <div id="edit-left">
+        <label for="edit-avatar">
+          <img id="current-photo" src="/img/avatar/{{user.avatar}}" alt="">
+          <p>Click to Change Avatar</p>
+        </label>
+        <input id="edit-avatar" name="avatar" type="file" accept="image/*">
+      </div>
+      <div id="edit-right">
+        <div class="form-item">
+          <label for="realname">Real Name: </label>
+          <input name="realname" id="realname" type="text" placeholder="Reveal your true identity"
+            value="{{user.realname}}">
+        </div>
+        <div class="form-item">
+          <label for="hq">HQ: </label>
+          <input name="hq" id="hq" type="text" placeholder="Where do you operate from?">
+        </div>
+        <label for="morality">Moral Alignment: </label>
+        <div class="form-item moral-wrapper">
+          <select name="morality" id="morality">
+            <option value="">Select Your Morality Below...</option>
+            <option value="Good | Lawful" {{moral.gl}}> Good | Lawful</option>
+            <option value="Good | Neutral" {{moral.gn}}>Good | Neutral</option>
+            <option value="Good | Chaotic" {{moral.gc}}>Good | Chaotic</option>
+            <option value="Neutral | Lawful" {{moral.nl}}>Neutral | Lawful</option>
+            <option value="True Neutral" {{moral.nn}}>True Neutral</option>
+            <option value="Neutral | Chaotic" {{moral.nc}}>Neutral | Chaotic</option>
+            <option value="Evil | Lawful" {{moral.el}}>Evil | Lawful</option>
+            <option value="Evil | Neutral" {{moral.en}}>Evil | Neutral</option>
+            <option value="Evil | Chaotic" {{moral.ec}}>Evil | Chaotic</option>
+          </select>
+        </div>
+        <div class="form-item">
+          <label for="bio">Bio: </label>
+          <textarea name="bio" id="" cols="30" rows="10" placeholder="Give a brief description about yourself">
       {{user.bio}}
       </textarea>
-  </div>
+        </div>
+      </div>
+    </div>
 
-  <button type="submit">Update!</button>
+    <div class="form-item checkboxes">
+      <div class="group">
+        <input name="gen" id="gen" type="checkbox" value="Genius IQ" {{#if user.skills.gen }}checked{{/if}}>
+        <label for="gen">
+          <img src="/img/svg/gen.svg" alt="">
+          <p>Genius IQ</p>
+        </label>
 
-</form>
+        <input name="str" id="str" type="checkbox" value="Super Strength" {{#if user.skills.str }}checked{{/if}}>
+        <label for="str">
+          <img src="/img/svg/str.svg" alt="">
+          <p>Super Strength</p>
+        </label>
 
+
+        <input name="spe" id="spe" type="checkbox" value="Super Speed" {{#if user.skills.spe }}checked{{/if}}>
+        <label for="spe">
+          <img src="/img/svg/spe.svg" alt="">
+          <p>Super Speed</p>
+        </label>
+
+      </div>
+
+      <div class="group">
+        <input name="sen" id="sen" type="checkbox" value="Super Senses" {{#if user.skills.sen }}checked{{/if}}>
+        <label for="sen">
+          <img src="/img/svg/sen.svg" alt="">
+          <p>Super Senses</p>
+        </label>
+
+
+        <input name="hea" id="hea" type="checkbox" value="Healing" {{#if user.skills.hea }}checked{{/if}}>
+        <label for="hea">
+          <img src="/img/svg/hea.svg" alt="">
+          <p>Healing</p>
+        </label>
+
+
+        <input name="fly" id="fly" type="checkbox" value="Flying" {{#if user.skills.fly }}checked{{/if}}>
+        <label for="fly">
+          <img src="/img/svg/fly.svg" alt="">
+          <p>Flying</p>
+        </label>
+
+      </div>
+
+      <div class="group">
+
+        <input name="mar" id="mar" type="checkbox" value="Martial Arts" {{#if user.skills.mar }}checked{{/if}}>
+        <label for="mar">
+          <img src="/img/svg/mar.svg" alt="">
+          <p>Martial Arts</p>
+        </label>
+
+        <input name="psy" id="psy" type="checkbox" value="Psychic" {{#if user.skills.psy }}checked{{/if}}>
+        <label for="psy">
+          <img src="/img/svg/psy.svg" alt="">
+          <p>Psychic</p>
+        </label>
+
+        <input name="mag" id="mag" type="checkbox" value="Magic" {{#if user.skills.mag }}checked{{/if}}>
+        <label for="mag">
+          <img src="/img/svg/mag.svg" alt="">
+          <p>Magic</p>
+        </label>
+      </div>
+
+      
+      <div class="group">
+        <input name="ele" id="ele" type="checkbox" value="Elemental Powers" {{#if user.skills.ele }}checked{{/if}}>
+        <label for="ele">
+          <img src="/img/svg/ele.svg" alt="">
+          <p>Elemental Powers</p>
+        </label>
+      </div>
+
+    </div>
+
+
+    <div class="form-item">
+      <label for="origin">1st Appearance:</label>
+      <input name="origin" id="origin" type="text" placeholder="Where'd you make your debut?">
+    </div>
+
+
+    <button type="submit">Update!</button>
+
+  </form>
+</main>

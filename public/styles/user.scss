@@ -1,0 +1,194 @@
+@mixin positions($Xvalue, $Yvalue) {
+  position: absolute;
+  top: $Yvalue;
+  left: $Xvalue;
+  transform: translate(-$Xvalue, -$Yvalue);
+}
+
+#dashboard {
+  color: white;
+  margin: 0 auto;
+  margin-top: 5%;
+  background-color: rgba(black, 0.33);
+  width: 66%;
+  text-align: center;
+  
+  #db-left, #db-right {
+    width: 50%;
+    padding: 3% 0;
+  }
+  h1 {
+    border-bottom: 0.15vw solid white;
+    font-size: 2vw;
+    padding: 1% 0;
+  }
+  #char-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #profile-img {
+    border-radius: 100%;
+    width: 66%;
+  }
+
+  a {
+    cursor: pointer;
+    margin: 5% auto;
+    width: 66%;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: rgba(white, 0.33);
+    font-size: 1.75vw;
+    font-weight: 300;
+    padding: 5% 0;
+    text-align: left;
+    i {
+      margin-left: 10%;
+      margin-right: 10%;
+      font-size: 2vw;
+    }
+  }
+}
+
+#edit-profile {
+  color: white;
+  margin: 0 auto;
+  margin-top: 5%;
+  background-color: rgba(black, 0.33);
+  width: 66%;
+  text-align: center;
+
+  label, input {
+    font-size: 1vw;
+  }
+
+  [type="checkbox"] {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+  }
+
+  label[for="avatar"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto 7.5% auto;
+    background-color: rgba(white, 0.33);
+    padding: 2.5%;
+    cursor: pointer;
+  }
+  input:not([type="checkbox"]) {
+    background: transparent;
+    border-bottom: 0.15vw solid white;
+    width: 66%;
+    padding: 2% 0;
+    text-align: center;
+    color: white;
+    margin-bottom: 3%;
+
+    &[name="origin"] {
+      width: 50%;
+    }
+  }
+  h1 {
+    border-bottom: 0.15vw solid white;
+    font-size: 2vw;
+    padding: 1% 0;
+  }
+
+  #edit-basic {
+    display: flex; 
+
+    label {
+      display: block;
+    }
+
+    #edit-left, #edit-right {
+      width: 50%;
+    }
+
+    #current-photo {
+      border-radius: 50%;
+      width: 66%;
+      cursor: pointer;
+    }
+
+    #edit-avatar {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .moral-wrapper {
+      margin: 2% auto;
+      position: relative;
+      background-color: rgba(white, 0.33);
+      width: 66%;
+
+      #morality {
+        cursor: pointer;
+        background-color: transparent;
+        width: 100%;
+        padding: 2.5% 5%;
+        color: white;
+        font-size: 1vw;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+
+      &::after {
+          font-family: 'Material Icons';
+          content: "keyboard_arrow_down";
+          @include positions(95%, 50%);
+          font-size: 2vw;
+          pointer-events: none;
+        }
+      option {
+        color: black;
+      }
+    }
+
+    textarea[name="bio"] {
+      width: 66%;
+      margin-top: 2.5%;
+      padding: 3%;
+    }
+  }
+
+  .checkboxes {
+    .group {
+      padding: 2.5%;
+      display: flex;
+      justify-content: center;
+
+      [type="checkbox"]:checked + label img {
+        opacity: 1;
+      }
+
+      label {
+        margin: 0 2.5%;
+        width: 20%;
+        cursor: pointer;
+        &:hover img{
+          opacity: 0.5;
+        }
+        p {
+          font-size: 1.25vw;
+        }
+
+        img {
+          width: 100%;
+          opacity: 0.25;
+          transition: opacity 0.33s ease-out;
+        }
+      }
+    }
+  }
+}

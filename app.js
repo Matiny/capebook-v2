@@ -99,13 +99,14 @@ hbs.registerPartials(__dirname + '/views/partials')
 app.locals.title = 'Capebook | A Site for Superheroes';
 
 
-const index = require('./routes/index');
-app.use('/', index);
+const user = require('./routes/user');
+app.use('/', user);
 
 const media = require('./routes/media');
 app.use('/', media);
 
 const post = require('./routes/post');
 app.use('/', post);
+
 
 module.exports = app;

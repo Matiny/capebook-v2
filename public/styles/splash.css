@@ -4,7 +4,11 @@
   padding: 0;
   border: none;
   outline: none;
-  font-family: 'Montserrat', sans-serif; }
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none; }
+
+button {
+  cursor: pointer; }
 
 nav {
   background: rgba(0, 0, 0, 0.33);
@@ -22,7 +26,7 @@ nav {
     text-decoration: none;
     color: white; }
   nav #icon {
-    width: 5%; }
+    width: 25%; }
 
 main {
   min-height: 100vh;
@@ -50,7 +54,6 @@ main {
     font-size: 2vw;
     padding: 3% 4%;
     padding-bottom: 4%;
-    cursor: pointer;
     text-decoration: none; }
 
 #auth-buttons {

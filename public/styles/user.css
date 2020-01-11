@@ -1,0 +1,141 @@
+#dashboard {
+  color: white;
+  margin: 0 auto;
+  margin-top: 5%;
+  background-color: rgba(0, 0, 0, 0.33);
+  width: 66%;
+  text-align: center; }
+  #dashboard #db-left, #dashboard #db-right {
+    width: 50%;
+    padding: 3% 0; }
+  #dashboard h1 {
+    border-bottom: 0.15vw solid white;
+    font-size: 2vw;
+    padding: 1% 0; }
+  #dashboard #char-info {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  #dashboard #profile-img {
+    border-radius: 100%;
+    width: 66%; }
+  #dashboard a {
+    cursor: pointer;
+    margin: 5% auto;
+    width: 66%;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.33);
+    font-size: 1.75vw;
+    font-weight: 300;
+    padding: 5% 0;
+    text-align: left; }
+    #dashboard a i {
+      margin-left: 10%;
+      margin-right: 10%;
+      font-size: 2vw; }
+
+#edit-profile {
+  color: white;
+  margin: 0 auto;
+  margin-top: 5%;
+  background-color: rgba(0, 0, 0, 0.33);
+  width: 66%;
+  text-align: center; }
+  #edit-profile label, #edit-profile input {
+    font-size: 1vw; }
+  #edit-profile [type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; }
+  #edit-profile label[for="avatar"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto 7.5% auto;
+    background-color: rgba(255, 255, 255, 0.33);
+    padding: 2.5%;
+    cursor: pointer; }
+  #edit-profile input:not([type="checkbox"]) {
+    background: transparent;
+    border-bottom: 0.15vw solid white;
+    width: 66%;
+    padding: 2% 0;
+    text-align: center;
+    color: white;
+    margin-bottom: 3%; }
+    #edit-profile input:not([type="checkbox"])[name="origin"] {
+      width: 50%; }
+  #edit-profile h1 {
+    border-bottom: 0.15vw solid white;
+    font-size: 2vw;
+    padding: 1% 0; }
+  #edit-profile #edit-basic {
+    display: flex; }
+    #edit-profile #edit-basic label {
+      display: block; }
+    #edit-profile #edit-basic #edit-left, #edit-profile #edit-basic #edit-right {
+      width: 50%; }
+    #edit-profile #edit-basic #current-photo {
+      border-radius: 50%;
+      width: 66%;
+      cursor: pointer; }
+    #edit-profile #edit-basic #edit-avatar {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1; }
+    #edit-profile #edit-basic .moral-wrapper {
+      margin: 2% auto;
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.33);
+      width: 66%; }
+      #edit-profile #edit-basic .moral-wrapper #morality {
+        cursor: pointer;
+        background-color: transparent;
+        width: 100%;
+        padding: 2.5% 5%;
+        color: white;
+        font-size: 1vw;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none; }
+      #edit-profile #edit-basic .moral-wrapper::after {
+        font-family: 'Material Icons';
+        content: "keyboard_arrow_down";
+        position: absolute;
+        top: 50%;
+        left: 95%;
+        transform: translate(-95%, -50%);
+        font-size: 2vw;
+        pointer-events: none; }
+      #edit-profile #edit-basic .moral-wrapper option {
+        color: black; }
+    #edit-profile #edit-basic textarea[name="bio"] {
+      width: 66%;
+      margin-top: 2.5%;
+      padding: 3%; }
+  #edit-profile .checkboxes .group {
+    padding: 2.5%;
+    display: flex;
+    justify-content: center; }
+    #edit-profile .checkboxes .group [type="checkbox"]:checked + label img {
+      opacity: 1; }
+    #edit-profile .checkboxes .group label {
+      margin: 0 2.5%;
+      width: 20%;
+      cursor: pointer; }
+      #edit-profile .checkboxes .group label:hover img {
+        opacity: 0.5; }
+      #edit-profile .checkboxes .group label p {
+        font-size: 1.25vw; }
+      #edit-profile .checkboxes .group label img {
+        width: 100%;
+        opacity: 0.25;
+        transition: opacity 0.33s ease-out; }
+
+/*# sourceMappingURL=user.css.map */

@@ -4,6 +4,7 @@
   border: none;
   outline: none;
   font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
 }
 
 
@@ -15,6 +16,10 @@
 }
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap');
+
+button {
+  cursor: pointer;
+}
 
 nav {
   background: rgba(black, 0.33);
@@ -37,7 +42,7 @@ nav {
   }
 
   #icon {
-    width: 5%;
+    width: 25%;
   }
 }
 
@@ -73,7 +78,6 @@ main {
     font-size: 2vw;
     padding: 3% 4%;
     padding-bottom: 4%;
-    cursor: pointer;
     text-decoration: none;
   }
 }

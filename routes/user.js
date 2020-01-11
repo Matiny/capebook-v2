@@ -38,7 +38,6 @@ const upload = multer({
 });
 
 let imgpath = "img/avatar/";
-let bgpath = "img/bgs/";
 
 /*------------ AUTH Routes ------------ */
 router.get('/', (req, res, next) => {
@@ -58,7 +57,7 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post("/signin", passport.authenticate("local", {
-  successRedirect: "/posts",
+  successRedirect: "/dashboard",
   failureRedirect: "/signin",
   badRequestMessage: "Please enter both Name and Password",
   failureFlash: true,
@@ -168,25 +167,27 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
 
 });
 
+router.get("/signout", (req, res) => {
+  req.flash('error', 'You are now logged out!')
+  req.logout();
+  res.redirect("/signin");
+});
+
 /*------------ USER Routes ------------ */
 
 
 //By default it goes to /login, here it goes to /signin
+
 router.get("/dashboard", (req, res) => {
   if (!req.user) {
     req.flash('error', 'Please sign in to view Dashboard')
     res.redirect('/signin')
   }
 
-  res.render("user/dashboard", { user: req.user, imgpath });
+  res.render("user/dashboard", { user: req.user });
 
 });
 
-router.get("/signout", (req, res) => {
-  req.flash('error', 'You are now logged out!')
-  req.logout();
-  res.redirect("/signin");
-});
 
 router.get("/update", (req, res) => {
   if (!req.user) {
@@ -206,7 +207,7 @@ router.get("/update", (req, res) => {
     ec: req.user.morality === "Evil | Chaotic" ? "selected" : "",
   }
 
-  res.render("user/updateuser", { user: req.user, imgpath, moral });
+  res.render("user/updateuser", { user: req.user, moral });
   console.log(req.user);
 
 });
@@ -232,8 +233,6 @@ router.post("/update", upload.single("avatar"), (req, res) => {
 
 });
 
-
-
 router.get('/delete', (req, res, next) => {
 
   if (!req.user) {
@@ -254,7 +253,7 @@ router.post('/delete', (req, res, next) => {
 
     User.findByIdAndRemove(user._id)
       .then(() => {
-        res.redirect('/'); // Add user deleted successfully!
+        res.redirect('/'); // Add a message that says user deleted successfully!
       })
       .catch((err) => {
         next(err);
@@ -265,5 +264,18 @@ router.post('/delete', (req, res, next) => {
   }
 
 })
+
+router.get('/profile/:theUser', (req, res, next) => {
+
+  let whichUser = req.params.theUser;
+
+  User.findOne({ username: whichUser })
+    .then((user) => {
+      console.log(user);
+    })
+
+  res.render("user/profile", { user: req.user, imgpath });
+
+});
 
 module.exports = router;

@@ -1,5 +1,39 @@
-<h1>Welcome, {{ user.username }}!</h1>
-<img src="{{imgpath}}{{ user.avatar}}" alt="Avatar of {{user.username}}">
-<p>This is the dashboard!</p>
+<main>
+  {{> header}}
 
-<a href="/signout">Sign Out Here!</a>
+  <section id="dashboard">
+    <h1>DASHBOARD</h1>
+    <div id="char-info">
+      <div id="db-left">
+        <img src="/img/avatar/{{user.avatar}}" id="profile-img" alt="Avatar of {{user.username}}">
+        <h2>Welcome, {{ user.username }}!</h2>
+      </div>
+      <div id="db-right">
+        <a href="/update">
+          <i class="material-icons">
+            edit
+          </i>
+          EDIT PROFILE
+        </a>
+        <a href="/profile/{{user.username}}">
+          <i class="material-icons">
+            pageview
+          </i>
+          VIEW PROFILE
+        </a>
+        <a href="/posts">
+          <i class="material-icons">
+            chat
+          </i>
+          CHAT AREA
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <p>This is the dashboard!</p>
+
+  <a href="/signout">Sign Out Here!</a>
+</main>
