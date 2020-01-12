@@ -3,12 +3,22 @@
   font-weight: 300;
 }
 
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  i {
+    margin-right: 1%;
+  }
+  font-size: 1vw;
+}
+
 .form-wrapper {
   display: flex;
   margin-top: 5%;
   justify-content: center;
   text-align: center;
-  #signup, #signin {
+  #signup, #signin, [action="/delete"] {
     padding: 2.5% 0;
     background-color: rgba(black, 0.33);
     width: 33%;

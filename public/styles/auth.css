@@ -2,24 +2,32 @@
   color: rgba(255, 255, 255, 0.5);
   font-weight: 300; }
 
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1vw; }
+  .error-message i {
+    margin-right: 1%; }
+
 .form-wrapper {
   display: flex;
   margin-top: 5%;
   justify-content: center;
   text-align: center; }
-  .form-wrapper #signup, .form-wrapper #signin {
+  .form-wrapper #signup, .form-wrapper #signin, .form-wrapper [action="/delete"] {
     padding: 2.5% 0;
     background-color: rgba(0, 0, 0, 0.33);
     width: 33%;
     color: white; }
-    .form-wrapper #signup h1, .form-wrapper #signin h1 {
+    .form-wrapper #signup h1, .form-wrapper #signin h1, .form-wrapper [action="/delete"] h1 {
       font-size: 2.5vw;
       margin-bottom: 5%; }
-    .form-wrapper #signup label, .form-wrapper #signup input, .form-wrapper #signin label, .form-wrapper #signin input {
+    .form-wrapper #signup label, .form-wrapper #signup input, .form-wrapper #signin label, .form-wrapper #signin input, .form-wrapper [action="/delete"] label, .form-wrapper [action="/delete"] input {
       font-size: 1.25vw; }
-    .form-wrapper #signup label, .form-wrapper #signin label {
+    .form-wrapper #signup label, .form-wrapper #signin label, .form-wrapper [action="/delete"] label {
       display: block; }
-    .form-wrapper #signup label[for="avatar"], .form-wrapper #signin label[for="avatar"] {
+    .form-wrapper #signup label[for="avatar"], .form-wrapper #signin label[for="avatar"], .form-wrapper [action="/delete"] label[for="avatar"] {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -28,7 +36,7 @@
       background-color: rgba(255, 255, 255, 0.33);
       padding: 2.5%;
       cursor: pointer; }
-    .form-wrapper #signup input, .form-wrapper #signin input {
+    .form-wrapper #signup input, .form-wrapper #signin input, .form-wrapper [action="/delete"] input {
       background: transparent;
       border-bottom: 0.15vw solid white;
       width: 66%;
@@ -36,16 +44,16 @@
       text-align: center;
       color: white;
       margin-bottom: 3%; }
-    .form-wrapper #signup #avatar, .form-wrapper #signin #avatar {
+    .form-wrapper #signup #avatar, .form-wrapper #signin #avatar, .form-wrapper [action="/delete"] #avatar {
       width: 0.1px;
       height: 0.1px;
       opacity: 0;
       overflow: hidden;
       position: absolute;
       z-index: -1; }
-    .form-wrapper #signup #add-photo-icon, .form-wrapper #signin #add-photo-icon {
+    .form-wrapper #signup #add-photo-icon, .form-wrapper #signin #add-photo-icon, .form-wrapper [action="/delete"] #add-photo-icon {
       width: 10%; }
-    .form-wrapper #signup button, .form-wrapper #signin button {
+    .form-wrapper #signup button, .form-wrapper #signin button, .form-wrapper [action="/delete"] button {
       font-size: 1.5vw;
       font-weight: bold;
       color: white;

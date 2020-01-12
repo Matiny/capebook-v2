@@ -52,7 +52,7 @@
   }
 }
 
-#edit-profile {
+#form-wrapper {
   color: white;
   margin: 0 auto;
   margin-top: 5%;
@@ -98,12 +98,24 @@
     font-size: 2vw;
     padding: 1% 0;
   }
+  
+  h2 {
+    font-size: 1.5vw;
+    padding: 1% 0;
+  }
 
   #edit-basic {
     display: flex; 
+    padding: 3% 0;
 
     label {
       display: block;
+    }
+
+    [for="edit-avatar"] {
+      p {
+        padding: 2.5% 0;
+      }
     }
 
     #edit-left, #edit-right {
@@ -159,6 +171,7 @@
       width: 66%;
       margin-top: 2.5%;
       padding: 3%;
+      font-size: 1vw;
     }
   }
 
@@ -173,6 +186,7 @@
       }
 
       label {
+       
         margin: 0 2.5%;
         width: 20%;
         cursor: pointer;
@@ -184,11 +198,112 @@
         }
 
         img {
+          border: 1px solid white;
           width: 100%;
           opacity: 0.25;
           transition: opacity 0.33s ease-out;
         }
       }
+    }
+  }
+
+  [for="origin"] {
+    display: block;
+  }
+
+  .first-a {
+    padding-top: 3%;
+  }
+
+  #story-link {
+    padding: 2.5% 0;
+    font-size: 1.25vw;
+
+    a {
+      padding: 2%;
+      align-items: center;
+      color: white;
+      background-color: rgba(white, 0.3);
+      width: 20%;
+      i {
+        margin-right: 1%;
+        font-size: 2vw;
+        vertical-align: middle;
+      }
+    }
+  }
+  #update-profile {
+    margin: 2.5% auto;
+    background-color: rgba(white, 0.3);
+    color: white;
+    font-size: 1.5vw;
+    padding: 1.5%;
+  }
+  
+  #delete-link {
+    padding: 2.5%;
+    a {
+    background-color: rgba(red, 0.3);
+    color: white;
+    font-size: 1.5vw;
+    padding: 1.5%;
+    }
+    i {
+      font-size: 1.5vw;
+      vertical-align: middle;
+    }
+  }
+}
+
+#profile {
+  color: white;
+  margin: 0 auto;
+  margin-top: 5%;
+  background-color: rgba(black, 0.33);
+  width: 66%;
+  text-align: center;
+
+  #basic-info {
+    display: flex;
+    text-align: left;
+    
+    #profile-left, #profile-right {
+      width: 50%;
+      padding: 4% 2%;
+    }
+    img {
+      width: 55%;
+      border-radius: 50%;
+      margin-left: auto;
+      display: block;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 2.5vw;
+      padding-bottom: 2.5%;
+    }
+    p {
+      font-weight: 300;
+      font-size: 1.25vw;
+      padding: 1.5% 0;
+    }
+  }
+
+  #skills {
+    .group {
+      display: flex;
+      justify-content: center;
+    }
+    .one-skill {
+      width: 20%;
+    }
+
+    img {
+      width: 100%;
+    }
+    p {
+      font-weight: 300;
+      font-size: 1.25vw;
     }
   }
 }

@@ -36,20 +36,20 @@
       margin-right: 10%;
       font-size: 2vw; }
 
-#edit-profile {
+#form-wrapper {
   color: white;
   margin: 0 auto;
   margin-top: 5%;
   background-color: rgba(0, 0, 0, 0.33);
   width: 66%;
   text-align: center; }
-  #edit-profile label, #edit-profile input {
+  #form-wrapper label, #form-wrapper input {
     font-size: 1vw; }
-  #edit-profile [type="checkbox"] {
+  #form-wrapper [type="checkbox"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none; }
-  #edit-profile label[for="avatar"] {
+  #form-wrapper label[for="avatar"] {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,7 +58,7 @@
     background-color: rgba(255, 255, 255, 0.33);
     padding: 2.5%;
     cursor: pointer; }
-  #edit-profile input:not([type="checkbox"]) {
+  #form-wrapper input:not([type="checkbox"]) {
     background: transparent;
     border-bottom: 0.15vw solid white;
     width: 66%;
@@ -66,35 +66,41 @@
     text-align: center;
     color: white;
     margin-bottom: 3%; }
-    #edit-profile input:not([type="checkbox"])[name="origin"] {
+    #form-wrapper input:not([type="checkbox"])[name="origin"] {
       width: 50%; }
-  #edit-profile h1 {
+  #form-wrapper h1 {
     border-bottom: 0.15vw solid white;
     font-size: 2vw;
     padding: 1% 0; }
-  #edit-profile #edit-basic {
-    display: flex; }
-    #edit-profile #edit-basic label {
+  #form-wrapper h2 {
+    font-size: 1.5vw;
+    padding: 1% 0; }
+  #form-wrapper #edit-basic {
+    display: flex;
+    padding: 3% 0; }
+    #form-wrapper #edit-basic label {
       display: block; }
-    #edit-profile #edit-basic #edit-left, #edit-profile #edit-basic #edit-right {
+    #form-wrapper #edit-basic [for="edit-avatar"] p {
+      padding: 2.5% 0; }
+    #form-wrapper #edit-basic #edit-left, #form-wrapper #edit-basic #edit-right {
       width: 50%; }
-    #edit-profile #edit-basic #current-photo {
+    #form-wrapper #edit-basic #current-photo {
       border-radius: 50%;
       width: 66%;
       cursor: pointer; }
-    #edit-profile #edit-basic #edit-avatar {
+    #form-wrapper #edit-basic #edit-avatar {
       width: 0.1px;
       height: 0.1px;
       opacity: 0;
       overflow: hidden;
       position: absolute;
       z-index: -1; }
-    #edit-profile #edit-basic .moral-wrapper {
+    #form-wrapper #edit-basic .moral-wrapper {
       margin: 2% auto;
       position: relative;
       background-color: rgba(255, 255, 255, 0.33);
       width: 66%; }
-      #edit-profile #edit-basic .moral-wrapper #morality {
+      #form-wrapper #edit-basic .moral-wrapper #morality {
         cursor: pointer;
         background-color: transparent;
         width: 100%;
@@ -104,7 +110,7 @@
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none; }
-      #edit-profile #edit-basic .moral-wrapper::after {
+      #form-wrapper #edit-basic .moral-wrapper::after {
         font-family: 'Material Icons';
         content: "keyboard_arrow_down";
         position: absolute;
@@ -113,29 +119,101 @@
         transform: translate(-95%, -50%);
         font-size: 2vw;
         pointer-events: none; }
-      #edit-profile #edit-basic .moral-wrapper option {
+      #form-wrapper #edit-basic .moral-wrapper option {
         color: black; }
-    #edit-profile #edit-basic textarea[name="bio"] {
+    #form-wrapper #edit-basic textarea[name="bio"] {
       width: 66%;
       margin-top: 2.5%;
-      padding: 3%; }
-  #edit-profile .checkboxes .group {
+      padding: 3%;
+      font-size: 1vw; }
+  #form-wrapper .checkboxes .group {
     padding: 2.5%;
     display: flex;
     justify-content: center; }
-    #edit-profile .checkboxes .group [type="checkbox"]:checked + label img {
+    #form-wrapper .checkboxes .group [type="checkbox"]:checked + label img {
       opacity: 1; }
-    #edit-profile .checkboxes .group label {
+    #form-wrapper .checkboxes .group label {
       margin: 0 2.5%;
       width: 20%;
       cursor: pointer; }
-      #edit-profile .checkboxes .group label:hover img {
+      #form-wrapper .checkboxes .group label:hover img {
         opacity: 0.5; }
-      #edit-profile .checkboxes .group label p {
+      #form-wrapper .checkboxes .group label p {
         font-size: 1.25vw; }
-      #edit-profile .checkboxes .group label img {
+      #form-wrapper .checkboxes .group label img {
+        border: 1px solid white;
         width: 100%;
         opacity: 0.25;
         transition: opacity 0.33s ease-out; }
+  #form-wrapper [for="origin"] {
+    display: block; }
+  #form-wrapper .first-a {
+    padding-top: 3%; }
+  #form-wrapper #story-link {
+    padding: 2.5% 0;
+    font-size: 1.25vw; }
+    #form-wrapper #story-link a {
+      padding: 2%;
+      align-items: center;
+      color: white;
+      background-color: rgba(255, 255, 255, 0.3);
+      width: 20%; }
+      #form-wrapper #story-link a i {
+        margin-right: 1%;
+        font-size: 2vw;
+        vertical-align: middle; }
+  #form-wrapper #update-profile {
+    margin: 2.5% auto;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1.5vw;
+    padding: 1.5%; }
+  #form-wrapper #delete-link {
+    padding: 2.5%; }
+    #form-wrapper #delete-link a {
+      background-color: rgba(255, 0, 0, 0.3);
+      color: white;
+      font-size: 1.5vw;
+      padding: 1.5%; }
+    #form-wrapper #delete-link i {
+      font-size: 1.5vw;
+      vertical-align: middle; }
+
+#profile {
+  color: white;
+  margin: 0 auto;
+  margin-top: 5%;
+  background-color: rgba(0, 0, 0, 0.33);
+  width: 66%;
+  text-align: center; }
+  #profile #basic-info {
+    display: flex;
+    text-align: left; }
+    #profile #basic-info #profile-left, #profile #basic-info #profile-right {
+      width: 50%;
+      padding: 4% 2%; }
+    #profile #basic-info img {
+      width: 55%;
+      border-radius: 50%;
+      margin-left: auto;
+      display: block; }
+    #profile #basic-info h1 {
+      font-weight: normal;
+      font-size: 2.5vw;
+      padding-bottom: 2.5%; }
+    #profile #basic-info p {
+      font-weight: 300;
+      font-size: 1.25vw;
+      padding: 1.5% 0; }
+  #profile #skills .group {
+    display: flex;
+    justify-content: center; }
+  #profile #skills .one-skill {
+    width: 20%; }
+  #profile #skills img {
+    width: 100%; }
+  #profile #skills p {
+    font-weight: 300;
+    font-size: 1.25vw; }
 
 /*# sourceMappingURL=user.css.map */

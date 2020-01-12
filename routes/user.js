@@ -37,8 +37,6 @@ const upload = multer({
   fileFilter
 });
 
-let imgpath = "img/avatar/";
-
 /*------------ AUTH Routes ------------ */
 router.get('/', (req, res, next) => {
 
@@ -133,13 +131,14 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
             sen: "",
             hea: "",
             fly: "",
-            tou: "",
+            mar: "",
             psy: "",
             mag: "",
             ele: ""
           },
           morality: "",
           location: "",
+          hq: "",
           origin: "",
           bio: "",
         });
@@ -214,16 +213,16 @@ router.get("/update", (req, res) => {
 
 router.post("/update", upload.single("avatar"), (req, res) => {
 
-  const { realname, location, morality, origin, bio, gen, str, spe, sen, hea, fly, tou, psy, mag, ele } = req.body;
+  const { realname, location, morality, origin, hq, bio, gen, str, spe, sen, hea, fly, mar, psy, mag, ele } = req.body;
 
   let skills = {
-    gen, str, spe, sen, hea, fly, tou, psy, mag, ele
+    gen, str, spe, sen, hea, fly, mar, psy, mag, ele
   }
 
   console.log(req.file);
   let avatar = req.file ? req.file.filename : req.user.avatar;
 
-  User.findByIdAndUpdate(req.user._id, { realname, avatar, location, skills, morality, origin, bio })
+  User.findByIdAndUpdate(req.user._id, { realname, avatar, location, skills, morality, hq, origin, bio })
     .then(() => {
       res.redirect('/dashboard')
     })
@@ -240,7 +239,7 @@ router.get('/delete', (req, res, next) => {
     res.redirect('/signin')
   }
 
-  res.render("user/deleteuser", { user: req.user, imgpath });
+  res.render("user/deleteuser", { user: req.user });
 
 })
 
@@ -271,11 +270,8 @@ router.get('/profile/:theUser', (req, res, next) => {
 
   User.findOne({ username: whichUser })
     .then((user) => {
-      console.log(user);
+      res.render("user/profile", { user });
     })
-
-  res.render("user/profile", { user: req.user, imgpath });
-
 });
 
 module.exports = router;

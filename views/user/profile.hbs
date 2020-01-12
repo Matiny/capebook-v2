@@ -1,4 +1,85 @@
 <main>
-  {{>header}}
+  {{> header}}
+
+  <section id="profile">
+    <div id="basic-info">
+      <div id="profile-left">
+        <img id="current-photo" src="/img/avatar/{{user.avatar}}" alt="">
+      </div>
+      <div id="profile-right">
+        <h1>{{toUpperCase user.username}}</h1>
+        <p>Real Name: {{user.realname}}</p>
+        <p>HQ: {{user.hq}}</p>
+        <p>Morality: {{user.morality}}</p>
+        <p>Bio: {{user.bio}}</p>
+      </div>
+    </div>
+
+    <div id="skills">
+      <div class="group">
+        {{#if user.skills.gen }}
+        <div class="one-skill">
+          <img src="/img/svg/gen.svg" alt="">
+          <p>Genius IQ</p>
+        </div>
+        {{/if}}
+        {{#if user.skills.str }}
+        <div class="one-skill">
+          <img src="/img/svg/str.svg" alt="">
+          <p>Super Strength</p>
+        </div>
+        {{/if}}
+        {{#if user.skills.spe }}
+        <div class="one-skill">
+          <img src="/img/svg/spe.svg" alt="">
+          <p>Super Speed</p>
+        </div>
+        {{/if}}
+      </div>
+
+      <div class="group">
+        {{#if user.skills.gen }}
+        <div class="one-skill">
+          <img src="/img/svg/gen.svg" alt="">
+          <p>Genius IQ</p>
+        </div>
+        {{/if}}
+        {{#if user.skills.str }}
+        <div class="one-skill">
+          <img src="/img/svg/st.svg" alt="">
+          <p>Super Strength</p>
+        </div>
+        {{/if}}
+        {{#if user.skills.spe }}
+        <div class="one-skill">
+          <img src="/img/svg/spe.svg" alt="">
+          <p>Super Speed</p>
+        </div>
+        {{/if}}
+      </div>
+      <div class="group">
+        {{#if user.skills.gen }}
+        <div class="one-skill">
+          <img src="/img/svg/gen.svg" alt="">
+          <p>Genius IQ</p>
+        </div>
+        {{/if}}
+        {{#if user.skills.str }}
+        <div class="one-skill">
+          <img src="/img/svg/s.svg" alt="">
+          <p>Super Strength</p>
+        </div>
+        {{/if}}
+        {{#if user.skills.spe }}
+        <div class="one-skill">
+          <img src="/img/svg/spe.svg" alt="">
+          <p>Super Speed</p>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+
+  </section>
+
 
 </main>
