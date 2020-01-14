@@ -34,38 +34,7 @@ const userSchema = new Schema({
   avatar: {
     type: String
   },
-  skills: { 
-    gen: {
-      type: String,
-    },
-    str: {
-      type: String,
-    },
-    spe: {
-      type: String,
-    },
-    sen: {
-      type: String,
-    },
-    hea: {
-      type: String,
-    },
-    fly: {
-      type: String,
-    },
-    mar: {
-      type: String,
-    },
-    psy: {
-      type: String,
-    },
-    mag: {
-      type: String,
-    },
-    ele: {
-      type: String,
-    },
-   },
+  skills: [],
   realname: { type: String },
   hq: { type: String },
   morality: { type: String },

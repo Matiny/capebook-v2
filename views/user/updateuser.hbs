@@ -47,81 +47,15 @@
       <div class="form-item checkboxes">
         <h2>CHOOSE SKILLS & POWERS</h2>
         <div class="group">
-          <input name="gen" id="gen" type="checkbox" value="Genius IQ" {{#if user.skills.gen }}checked{{/if}}>
-          <label for="gen">
-            <img src="/img/svg/gen.svg" alt="">
-            <p>Genius IQ</p>
+          {{#each user.skills}}
+          <input name="{{this.name}}" id="{{this.name}}" type="checkbox" value="yes" {{#if this.chosen }}checked{{/if}}>
+          <label for="{{this.name}}">
+            <img src="/img/svg/{{this.name}}.svg" alt="">
+            <p>{{this.desc}}</p>
           </label>
-
-          <input name="str" id="str" type="checkbox" value="Super Strength" {{#if user.skills.str }}checked{{/if}}>
-          <label for="str">
-            <img src="/img/svg/str.svg" alt="">
-            <p>Super Strength</p>
-          </label>
-
-          <input name="spe" id="spe" type="checkbox" value="Super Speed" {{#if user.skills.spe }}checked{{/if}}>
-          <label for="spe">
-            <img src="/img/svg/spe.svg" alt="">
-            <p>Super Speed</p>
-          </label>
-
+          {{/each}}
         </div>
-
-        <div class="group">
-          <input name="sen" id="sen" type="checkbox" value="Super Senses" {{#if user.skills.sen }}checked{{/if}}>
-          <label for="sen">
-            <img src="/img/svg/sen.svg" alt="">
-            <p>Super Senses</p>
-          </label>
-
-
-          <input name="hea" id="hea" type="checkbox" value="Healing" {{#if user.skills.hea }}checked{{/if}}>
-          <label for="hea">
-            <img src="/img/svg/hea.svg" alt="">
-            <p>Healing</p>
-          </label>
-
-
-          <input name="fly" id="fly" type="checkbox" value="Flying" {{#if user.skills.fly }}checked{{/if}}>
-          <label for="fly">
-            <img src="/img/svg/fly.svg" alt="">
-            <p>Flying</p>
-          </label>
-
-        </div>
-
-        <div class="group">
-
-          <input name="mar" id="mar" type="checkbox" value="Martial Arts" {{#if user.skills.mar }}checked{{/if}}>
-          <label for="mar">
-            <img src="/img/svg/mar.svg" alt="">
-            <p>Martial Arts</p>
-          </label>
-
-          <input name="psy" id="psy" type="checkbox" value="Psychic" {{#if user.skills.psy }}checked{{/if}}>
-          <label for="psy">
-            <img src="/img/svg/psy.svg" alt="">
-            <p>Psychic</p>
-          </label>
-
-          <input name="mag" id="mag" type="checkbox" value="Magic" {{#if user.skills.mag }}checked{{/if}}>
-          <label for="mag">
-            <img src="/img/svg/mag.svg" alt="">
-            <p>Magic</p>
-          </label>
-        </div>
-
-
-        <div class="group">
-          <input name="ele" id="ele" type="checkbox" value="Elemental Powers" {{#if user.skills.ele }}checked{{/if}}>
-          <label for="ele">
-            <img src="/img/svg/ele.svg" alt="">
-            <p>Elemental Powers</p>
-          </label>
-        </div>
-
       </div>
-
 
       <h2>APPEARANCES</h2>
 

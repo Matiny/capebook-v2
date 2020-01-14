@@ -62,10 +62,10 @@ router.post("/signin", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-router.post("/aquaman", (req, res, next) => {
-  User.findOne({ username: "Aquaman" })
-    .then((aquaman) => {
-      req.login(aquaman, function (err) {
+router.post("/pearl", (req, res, next) => {
+  User.findOne({ username: "Black Pearl" })
+    .then((pearl) => {
+      req.login(pearl, function (err) {
         if (err) {
           console.log(err);
         }
@@ -124,18 +124,18 @@ router.post('/signup', upload.single("avatar"), (req, res, next) => {
           password: hashPass,
           avatar: req.file.filename,
           realname: "",
-          skills: {
-            gen: "",
-            str: "",
-            spe: "",
-            sen: "",
-            hea: "",
-            fly: "",
-            mar: "",
-            psy: "",
-            mag: "",
-            ele: ""
-          },
+          skills: [
+            { name: "gen", desc: "Genius IQ", chosen: "" },
+            { name: "str", desc: "Super Strength", chosen: "" },
+            { name: "spe", desc: "Super Speed", chosen: "" },
+            { name: "sen", desc: "Super Senses", chosen: "" },
+            { name: "mar", desc: "Martial Arts", chosen: "" },
+            { name: "fly", desc: "Flying", chosen: "" },
+            { name: "hea", desc: "Healing", chosen: "" },
+            { name: "psy", desc: "Psychic", chosen: "" },
+            { name: "mag", desc: "Magic", chosen: "" },
+            { name: "ele", desc: "Elemental Powers", chosen: "" }
+          ],
           morality: "",
           location: "",
           hq: "",
@@ -206,20 +206,28 @@ router.get("/update", (req, res) => {
     ec: req.user.morality === "Evil | Chaotic" ? "selected" : "",
   }
 
-  res.render("user/updateuser", { user: req.user, moral });
+  res.render("user/updateuser", { user: req.user, moral, checkboxes });
   console.log(req.user);
 
 });
 
 router.post("/update", upload.single("avatar"), (req, res) => {
 
-  const { realname, location, morality, origin, hq, bio, gen, str, spe, sen, hea, fly, mar, psy, mag, ele } = req.body;
+  const { realname, location, morality, origin, hq, bio, gen, hea, fly, mag, mar, psy, sen, spe, str, ele } = req.body;
 
-  let skills = {
-    gen, str, spe, sen, hea, fly, mar, psy, mag, ele
-  }
+  let skills = [
+    { name: "gen", desc: "Genius IQ", chosen: gen },
+    { name: "str", desc: "Super Strength", chosen: str },
+    { name: "spe", desc: "Super Speed", chosen: spe },
+    { name: "sen", desc: "Super Senses", chosen: sen },
+    { name: "mar", desc: "Martial Arts", chosen: mar },
+    { name: "fly", desc: "Flying", chosen: fly },
+    { name: "hea", desc: "Healing", chosen: hea },
+    { name: "psy", desc: "Psychic", chosen: psy },
+    { name: "mag", desc: "Magic", chosen: mag },
+    { name: "ele", desc: "Elemental Powers", chosen: ele }
+  ]
 
-  console.log(req.file);
   let avatar = req.file ? req.file.filename : req.user.avatar;
 
   User.findByIdAndUpdate(req.user._id, { realname, avatar, location, skills, morality, hq, origin, bio })

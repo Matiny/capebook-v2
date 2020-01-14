@@ -93,10 +93,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'img', 'favicon.ico')));
 
 hbs.registerPartials(__dirname + '/views/partials')
+
 hbs.registerHelper('toUpperCase', function(str) {
   return str.toUpperCase();
 });
-
 
 // default value for title local
 app.locals.title = 'Capebook | A Site for Superheroes';
