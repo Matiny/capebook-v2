@@ -206,7 +206,7 @@ router.get("/update", (req, res) => {
     ec: req.user.morality === "Evil | Chaotic" ? "selected" : "",
   }
 
-  res.render("user/updateuser", { user: req.user, moral, checkboxes });
+  res.render("user/updateuser", { user: req.user, moral });
   console.log(req.user);
 
 });
