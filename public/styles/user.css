@@ -204,15 +204,15 @@
       font-weight: 300;
       font-size: 1.25vw;
       padding: 1.5% 0; }
-  #profile #skills .group {
-    display: flex;
-    justify-content: center; }
-  #profile #skills .one-skill {
-    width: 20%; }
-  #profile #skills img {
+  #profile #skills {
     width: 100%; }
-  #profile #skills p {
-    font-weight: 300;
-    font-size: 1.25vw; }
+    #profile #skills .one-skill {
+      width: 20%;
+      display: inline-block; }
+    #profile #skills img {
+      width: 100%; }
+    #profile #skills p {
+      font-weight: 300;
+      font-size: 1.25vw; }
 
 /*# sourceMappingURL=user.css.map */

@@ -1,60 +1,65 @@
-{{> header }}
-<form action="/stories" method="POST">
-  <h1>Add New Story!</h1>
+<main>
+  {{> header }}
+  <div class="form-wrapper">
+    <form action="/stories" method="POST">
+      <h1>Add New Story!</h1>
 
-  <div class="form-item">
-    <label for="title">Title: </label>
-    <input name="title" id="title" type="text" placeholder="Name of the story">
+      <div class="form-item">
+        <label for="title">Title: </label>
+        <input name="title" id="title" type="text" placeholder="Name of the story">
+      </div>
+
+      <div class="form-item">
+        <label for="year">Year: </label>
+        <input name="year" id="year" type="text" placeholder="Release Year">
+      </div>
+
+      <div class="form-item">
+        <label for="format">Format: </label>
+        <select name="format" id="format">
+          <option value="">Please select the format...</option>
+          <option value="Movie">Movie</option>
+          <option value="Video Game">Video Game</option>
+          <option value="Comic">Comic</option>
+          <option value="TV Show">TV Show</option>
+          <option value="Book">Book</option>
+        </select>
+      </div>
+
+      <div class="form-item">
+        <label for="actor">Actor: </label>
+        <input name="actor" id="actor" type="text" placeholder="Who portrayed the character">
+      </div>
+
+      <div class="form-item">
+        <label for="plot">Plot: </label>
+        <textarea name="plot" id="" cols="30" rows="10" placeholder="A summary of the plot"></textarea>
+      </div>
+
+      <button type="submit">Finish Adding!</button>
+
+      {{#if message}}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
+
+    </form>
   </div>
 
-  <div class="form-item">
-    <label for="year">Year: </label>
-    <input name="year" id="year" type="text" placeholder="Release Year">
-  </div>
 
-  <div class="form-item">
-    <label for="format">Format: </label>
-    <select name="format" id="format">
-      <option value="">Please select the format...</option>
-      <option value="Movie">Movie</option>
-      <option value="Video Game">Video Game</option>
-      <option value="Comic">Comic</option>
-      <option value="TV Show">TV Show</option>
-      <option value="Book">Book</option>
-    </select>
-  </div>
+  <section>
 
-  <div class="form-item">
-    <label for="actor">Actor: </label>
-    <input name="actor" id="actor" type="text" placeholder="Who portrayed the character">
-  </div>
+    <h1>Story List</h1>
+    {{#each stories}}
+    <p>{{this.title}}</p>
 
-  <div class="form-item">
-    <label for="plot">Plot: </label>
-    <textarea name="plot" id="" cols="30" rows="10" placeholder="A summary of the plot"></textarea>
-  </div>
+    <button>
+      <a href="/stories/{{this._id}}">Edit This Story</a>
+    </button>
 
-  <button type="submit">Finish Adding!</button>
+    <form action="/deletestory/{{this._id}}" method="POST">
+      <button class="btn">Delete This Story</button>
+    </form>
 
-  {{#if message}}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-</form>
-
-<section>
-
-  <h1>Story List</h1>
-  {{#each stories}}
-  <p>{{this.title}}</p>
-
-  <button>
-    <a href="/stories/{{this._id}}">Edit This Story</a>
-  </button>
-
-  <form action="/deletestory/{{this._id}}" method="POST">
-    <button class="btn">Delete This Story</button>
-  </form>
-
-  {{/each}}
-</section>
+    {{/each}}
+  </section>
+</main>

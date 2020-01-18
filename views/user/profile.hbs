@@ -16,69 +16,16 @@
     </div>
 
     <div id="skills">
-      <div class="group">
-        {{#if user.skills.gen }}
-        <div class="one-skill">
-          <img src="/img/svg/gen.svg" alt="">
-          <p>Genius IQ</p>
-        </div>
-        {{/if}}
-        {{#if user.skills.str }}
-        <div class="one-skill">
-          <img src="/img/svg/str.svg" alt="">
-          <p>Super Strength</p>
-        </div>
-        {{/if}}
-        {{#if user.skills.spe }}
-        <div class="one-skill">
-          <img src="/img/svg/spe.svg" alt="">
-          <p>Super Speed</p>
-        </div>
-        {{/if}}
+      <h2>SKILLS & POWERS</h2>
+      {{#each user.skills}}
+      {{#if this.chosen}}
+      <div class="one-skill">
+        <img src="/img/svg/{{this.name}}.svg" alt="">
+        <p>{{this.desc}}</p>
       </div>
-
-      <div class="group">
-        {{#if user.skills.gen }}
-        <div class="one-skill">
-          <img src="/img/svg/gen.svg" alt="">
-          <p>Genius IQ</p>
-        </div>
-        {{/if}}
-        {{#if user.skills.str }}
-        <div class="one-skill">
-          <img src="/img/svg/st.svg" alt="">
-          <p>Super Strength</p>
-        </div>
-        {{/if}}
-        {{#if user.skills.spe }}
-        <div class="one-skill">
-          <img src="/img/svg/spe.svg" alt="">
-          <p>Super Speed</p>
-        </div>
-        {{/if}}
-      </div>
-      <div class="group">
-        {{#if user.skills.gen }}
-        <div class="one-skill">
-          <img src="/img/svg/gen.svg" alt="">
-          <p>Genius IQ</p>
-        </div>
-        {{/if}}
-        {{#if user.skills.str }}
-        <div class="one-skill">
-          <img src="/img/svg/s.svg" alt="">
-          <p>Super Strength</p>
-        </div>
-        {{/if}}
-        {{#if user.skills.spe }}
-        <div class="one-skill">
-          <img src="/img/svg/spe.svg" alt="">
-          <p>Super Speed</p>
-        </div>
-        {{/if}}
-      </div>
+      {{/if}}
+      {{/each}}
     </div>
-
   </section>
 
 
